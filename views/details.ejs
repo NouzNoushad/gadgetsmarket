@@ -1,0 +1,40 @@
+<div class="row mt-4">
+    <div class="col-md-4 m-auto">
+        <div class="card card-body">
+            <%- include('./partials/errors.ejs') %> 
+            <h2 class="text-center mb-4"><%= product.name %> </h2>
+                    <div class="col ">
+                        <div class="card h-100">
+                        <img src="/uploads/<%= product.image %> " alt="<%= product.name %> " >
+                        <div class="card-body">
+                            <h5 class="card-title">Name: <%= product.name %></h5>
+                            <h6 class="">price: <%= product.price %> </h6>
+                            <h6>Rating: <%= averageRating %>
+                                <span>(<%= customers %>)</span>
+                            </h6>
+                            <h6 class="card-text">description: <%= product.description %> </h6>
+                            <a href="/products/edit/<%= product.id %> " class="btn btn-info form-control mt-2">Edit <%= product.name %> </a>
+                            <a href="/products/rating/<%= product.id %> " class="btn btn-primary form-control mt-2">Write a review</a>
+                    
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <h6>Customer Reviews: </h6>
+                        <% ratings.map((rating) => { %>
+                            <% if(rating.product == product.id){ %>
+                                 <div class="card card-body mt-2">
+                                    <h6><%= rating.username %></h6>
+                                    <h6><%= rating.date.toLocaleString() %> </h6>
+                                    <h6>rating: <%= rating.rating %> </h6>
+                                    <p><%= rating.message %> </p>
+                                    <a href="/products/token/<%= rating.id %> " class="btn btn-outline-info form-control">Edit Review</a>
+                                </div>
+                            <% } %> 
+                        <% }); %>    
+                    </div>            
+            </div>
+        </div>
+    </div>
+</div>

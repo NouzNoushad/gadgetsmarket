@@ -1,0 +1,44 @@
+ <div class="row mt-5">
+     <div class="col-md-6 m-auto">
+         <div class="card card-body pt-4">
+             <h5 class="text-center mt-4">CREATE AN ACCOUNT</h5>
+             <form action="/products/register" method="POST">
+                
+                <% if(typeof errors != undefined) { %>
+                    <% errors.map(error => { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= error.message %> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <% }); %> 
+                <% }%> 
+                <div class="mb-3 row ps-5 mt-4">
+                    <div class="col-sm-10 ms-4">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="mb-5 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                    </div>
+                </div>
+                <div class="ps-5 ms-5">
+                    <button type="submit" class="btn btn-primary col-md-10 mb-3">Sign In</button>
+                </div>
+                <div class="ps-5 ms-5 mb-5">
+                    <p class="lead">Have an Account?<a href="/products/login">Login</a></p>
+                </div>
+            </form>
+         </div>
+     </div>
+ </div> 

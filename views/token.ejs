@@ -1,0 +1,31 @@
+ <div class="row mt-5">
+     <div class="col-md-4 m-auto">
+         <div class="card card-body">
+             <h5 class="text-center mt-4">Review Token</h5>
+             <form action="/products/token/<%= customer.id %> " method="POST" >
+
+                <% if(typeof errors != undefined) { %>
+                    <% errors.map(error => { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= error.message %> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <% }); %> 
+                <% }%>  
+               
+                <div class="mb-5 row mt-4 justify-content-center">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="token" name="token" placeholder="Token Id">
+                    </div>
+                </div>
+                <div class="mb-1 ms-4">
+                    <button type="submit" class="btn btn-primary col-sm-11 ">Enter</button>
+                </div>
+                <div class="mb-3 ms-4">
+                    <a href="/products/details/<%= customer.product %> " class="btn btn-secondary col-sm-11 mb-3">Cancel</a>
+                </div>
+                
+            </form>
+         </div>
+     </div>
+ </div> 

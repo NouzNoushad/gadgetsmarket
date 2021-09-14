@@ -1,0 +1,26 @@
+<div class="row mt-2">
+    <h5 class="text-center" style="color:royalblue"><a href="/products/create" class="nav-link">ADD PRODUCT</a></h5>
+    <%- include('./partials/errors.ejs') %> 
+    <div class="col-md-14 m-auto" >
+        <div class="card card-body">  
+                <div class="row row-cols-1 row-cols-md-5 g-2">
+                <% products.map((product) => { %>
+                    <div class="col">
+                        <div class="card h-100">
+                        <img src="uploads/<%= product.image %> " alt="<%= product.name %> " >
+                        <div class="card-body">
+                            <h6 class="card-title"><%= product.name %> </h6>
+                            <h6>Rating: 
+                                <%= (!product.rating) ? 5: product.rating %> 
+                            </h6>
+                            <h6>Brand: <%= product.brand %> </h6>
+                            <a href="/products/details/<%= product.id %> " class="btn btn-primary form-control">Details</a>
+                            <a href="/products/delete/<%= product.id %> " class="btn btn-danger form-control mt-2">Delete</a>
+                        </div>
+                        </div>
+                    </div>
+                <% }); %> 
+            </div>
+        </div>
+    </div>
+</div>

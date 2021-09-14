@@ -1,0 +1,53 @@
+ <div class="row mt-5">
+     <div class="col-md-7 m-auto">
+         <div class="card card-body pt-4">
+             <form action="/products/edit/<%= product.id %> " method="POST" enctype="multipart/form-data">
+
+                <% if(typeof errors != undefined) { %>
+                    <% errors.map(error => { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= error.message %> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <% }); %> 
+                <% }%> 
+                <div class="mb-3 row mt-3">
+                    <div class="d-flex justify-content-center m-auto">
+                        <img src="/uploads/<%= product.image %> " alt="<%= product.name %> " height=250px>
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="file" class="form-control" name="myImage">
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<%= product.name %> ">
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Brand" value="<%=product.brand %> ">
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<%= product.price %> ">
+                    </div>
+                </div>
+                <div class="mb-3 row ps-5">
+                    <div class="col-sm-10 ms-4">
+                        <textarea class="form-control" id="description" name="description" placeholder="Description..."><%= product.description %></textarea>
+                    </div>
+                </div>
+                <div class="ps-5 ms-5">
+                    <button type="submit" class="btn btn-primary col-md-10 mb-2">Submit</button>
+                </div>
+                <div class="ps-5 ms-5">
+                    <a href="/products/details/<%= product.id %> " class="btn btn-secondary col-md-10">Cancel</a>
+                </div>
+            </form>
+         </div>
+     </div>
+ </div> 
